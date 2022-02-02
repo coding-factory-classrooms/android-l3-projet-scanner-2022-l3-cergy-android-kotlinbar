@@ -1,7 +1,6 @@
 package com.example.kotlinbar
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {

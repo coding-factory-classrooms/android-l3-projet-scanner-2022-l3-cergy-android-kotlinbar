@@ -3,7 +3,7 @@ package com.example.kotlinbar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.kotlinbar.databinding.ActivityProduitListBinding
-import com.example.kotlinbar.databinding.ItemProduitBinding
+
 
 class ProduitListActivity : AppCompatActivity() {
     private  lateinit var binding: ActivityProduitListBinding
