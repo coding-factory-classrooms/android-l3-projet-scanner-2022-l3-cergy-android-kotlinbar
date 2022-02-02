@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
 
             val button = findViewById<Button>(R.id.buttonScan)
             button.setOnClickListener{
-                val intent = Intent(this, Scanner::class.java)
+                val intent = Intent(this, ScannerActivity::class.java)
                 startActivity(intent)
             }
         }
