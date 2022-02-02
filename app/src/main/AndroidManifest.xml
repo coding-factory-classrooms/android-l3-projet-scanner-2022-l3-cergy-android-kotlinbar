@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinBar">
         <activity
-            android:name=".ProduitsActivity2"
+            android:name=".ProduitListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProduitsActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
