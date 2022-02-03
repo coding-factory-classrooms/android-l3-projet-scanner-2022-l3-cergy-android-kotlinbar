@@ -24,7 +24,7 @@ class ProduitAdapter (private var produit : List<Produits>)
         val produit = produit.get(position)
         with(holder.binding) {
             nameProduit.text = produit.nom
-            description.text="description"
+            description.text=produit.generic_name
             produitImage.setImageResource(produit.image)
 
         }
