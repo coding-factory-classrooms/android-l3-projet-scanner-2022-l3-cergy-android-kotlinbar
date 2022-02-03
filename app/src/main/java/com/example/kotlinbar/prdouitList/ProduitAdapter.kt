@@ -1,13 +1,11 @@
-package com.example.kotlinbar
+package com.example.kotlinbar.prdouitList
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.view.inputmethod.InputBinding
-import androidx.constraintlayout.widget.ConstraintSet
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinbar.databinding.ItemProduitBinding
 
-class ProduitAdapter (private var produit : List<Produits>)
+class ProduitAdapter (private var produit : List<Produit>)
     : RecyclerView.Adapter<ProduitAdapter.ViewHolder>()
 {
     class ViewHolder(val binding: ItemProduitBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -24,7 +22,7 @@ class ProduitAdapter (private var produit : List<Produits>)
         val produit = produit.get(position)
         with(holder.binding) {
             nameProduit.text = produit.nom
-            description.text=produit.generic_name
+            /*textView(description)*/ description.text=produit.description
             produitImage.setImageResource(produit.image)
 
         }
@@ -32,5 +30,9 @@ class ProduitAdapter (private var produit : List<Produits>)
 
     override fun getItemCount(): Int {
         return produit.size
+    }
+    fun updateDataSet(produits: List<Produit>) {
+        this.produit = produits
+        notifyDataSetChanged()
     }
 }
