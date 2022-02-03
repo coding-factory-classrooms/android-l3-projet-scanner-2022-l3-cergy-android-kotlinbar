@@ -9,8 +9,14 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
+import androidx.lifecycle.MutableLiveData
 import com.google.zxing.integration.android.IntentIntegrator
+import okhttp3.ResponseBody
 import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
 
@@ -31,6 +37,32 @@ class ScannerActivity : AppCompatActivity() {
                 if (result.contents != null) {
                     // Do something with the contents (this is usually a URL)
                     println(result.contents)
+                    val url = "https://fr.openfoodfacts.org/"
+                    val API_VER = "v0"
+                    val API_P = "api/$API_VER"
+
+                    val retrofit = Retrofit.Builder()
+                        .baseUrl("https://fr.openfoodfacts.org/")
+                        .addConverterFactory(MoshiConverterFactory.create())
+                        .build()
+
+                    val service = retrofit.create(APIProducts::class.java)
+                    val call = service.listRepos(result.contents)
+
+                    if (call != null) {
+                        call.enqueue( object : Callback<ClassProduits>  {
+                            override fun onResponse(
+                                call: Call<ClassProduits>,
+                                response: Response<ClassProduits>
+                            ) {
+                                TODO("Not yet implemented")
+                            }
+
+                            override fun onFailure(call: Call<ClassProduits>, t: Throwable) {
+                                TODO("Not yet implemented")
+                            }
+                        })
+                    }
 
                     val barcode = result.contents
                     Toast.makeText(this, "${result.contents}", Toast.LENGTH_LONG).show()
@@ -57,3 +89,6 @@ class ScannerActivity : AppCompatActivity() {
     }
 
 }
+
+
+

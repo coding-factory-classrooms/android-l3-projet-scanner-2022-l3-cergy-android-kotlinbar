@@ -26,7 +26,7 @@ class ProduitsActivity : AppCompatActivity() {
     private val API_P = "api/$API_VER"
 
     val retrofit = Retrofit.Builder()
-        .baseUrl(url)
+        .baseUrl("https://fr.openfoodfacts.org/")
         .addConverterFactory(MoshiConverterFactory.create())
         .build()
 
@@ -38,7 +38,7 @@ class ProduitsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_page_details)
 
-        val call = service.getProductByBarcode()
+        val call = service. getProductByBarcode()
         call.enqueue(object  : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 Log.i(TAG, "onResponse : ")
