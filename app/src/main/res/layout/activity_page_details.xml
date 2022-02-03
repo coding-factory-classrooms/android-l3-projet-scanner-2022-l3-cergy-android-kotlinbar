@@ -7,9 +7,7 @@
     tools:context=".PageDetailsActivity">
 
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -21,7 +19,7 @@
             android:layout_marginBottom="50px"
             android:textAlignment="center"
             tools:text="Nom du produit"
-            android:text="TextView" />
+            android:text="@string/textview" />
 
         <ImageView
             android:id="@+id/imageProduit"
@@ -29,7 +27,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="375px"
             android:layout_marginBottom="50px"
-            tools:src="@tools:sample/avatars" />
+            tools:src="@tools:sample/avatars"
+            android:contentDescription="TODO"
+            android:layout_marginStart="375px" />
 
 
 
