@@ -13,9 +13,6 @@ class ProduitListActivity : AppCompatActivity() {
     private val model : ProduitListViewModel by viewModels()
     private lateinit var  adapter: ProduitAdapter
 
-//    private val produit = listOf(
-//        Produits(1, "coca", "coca-cola light", 5,"cafeine, sucre, eau")
-//    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProduitListBinding.inflate(layoutInflater)
@@ -30,6 +27,7 @@ class ProduitListActivity : AppCompatActivity() {
     model.loadProduit()
 
     }
+
 
     private fun updateProduits(produit: List<Produit>) {
         adapter.updateDataSet(produit)

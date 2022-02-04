@@ -1,5 +1,6 @@
 package com.example.kotlinbar.prdouitList
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -20,10 +21,10 @@ class ProduitAdapter (private var produit : List<Produit>)
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val produit = produit.get(position)
-        with(holder.binding) {
-            nameProduit.text = produit.nom
-            /*textView(description)*/ description.text=produit.description
-            produitImage.setImageResource(produit.image)
+        with(holder) {
+            binding.nameProduit.text = produit.nom
+            binding.description.text=produit.description
+            binding.produitImage.setImageResource(produit.image)
 
         }
     }
