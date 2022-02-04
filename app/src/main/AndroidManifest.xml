@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinBar" >
         <activity
-            android:name=".ScannerActivity"
+            android:name=".Scanner.ScannerActivity"
             android:exported="false" />
         <activity
             android:name=".PageDetailsActivity"

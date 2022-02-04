@@ -1,24 +1,24 @@
-package com.example.kotlinbar
+package com.example.kotlinbar.Scanner
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
-import androidx.lifecycle.MutableLiveData
+import com.example.kotlinbar.API.APIProducts
+import com.example.kotlinbar.Produit.ClassProduits
+import com.example.kotlinbar.R
 import com.google.zxing.integration.android.IntentIntegrator
-import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.http.GET
-
 
 
 class ScannerActivity : AppCompatActivity() {
@@ -55,11 +55,11 @@ class ScannerActivity : AppCompatActivity() {
                                 call: Call<ClassProduits>,
                                 response: Response<ClassProduits>
                             ) {
-                                TODO("Not yet implemented")
+                                Log.i("TAG", "onResponse: ${response.body()}")
                             }
 
                             override fun onFailure(call: Call<ClassProduits>, t: Throwable) {
-                                TODO("Not yet implemented")
+                                Log.e("TAG", "onFailure: ", t)
                             }
                         })
                     }

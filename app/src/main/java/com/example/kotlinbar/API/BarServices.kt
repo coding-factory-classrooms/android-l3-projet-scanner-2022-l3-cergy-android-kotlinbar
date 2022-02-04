@@ -1,8 +1,9 @@
-package com.example.kotlinbar
+package com.example.kotlinbar.API
 import androidx.activity.viewModels
 import android.os.Bundle
 import android.util.Log
 import com.example.kotlinbar.Produit.TAG
+import com.example.kotlinbar.Produits
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -37,13 +38,13 @@ interface BarServices {
     @GET("$API_P/product/7613287335524.json?product_name_fr")
     fun getProductByBarcode(): Call<String>
 
-    @GET("$API_P/product/{result.content}.json?fields=ingredients")
+    @GET("$API_P/product/{result.content}.json?fields=ingredients_text_fr")
     fun getIngredientsByBarcode(@Path("barcode") barcode: String)
 
     @GET("$API_P/product/{barcode}.json?fields=images")
     fun getProductImages(@Path("barcode") barcode: String)
 
-    @GET("$API_P/product/{barcode}.json?fields=generic_name")
+    @GET("$API_P/product/{barcode}.json?fields=generic_name_fr")
     fun getProductGenericName(@Path("barcode") barcode: String)
 
 }

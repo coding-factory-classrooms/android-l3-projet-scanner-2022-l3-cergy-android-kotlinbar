@@ -6,7 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import com.example.kotlinbar.BarServices
+import com.example.kotlinbar.API.BarServices
+
 import com.example.kotlinbar.Produits
 import com.example.kotlinbar.R
 import com.example.kotlinbar.produitsViewModel
@@ -26,7 +27,7 @@ class ProduitsActivity : AppCompatActivity() {
     private val API_P = "api/$API_VER"
 
     val retrofit = Retrofit.Builder()
-        .baseUrl("https://fr.openfoodfacts.org/")
+        .baseUrl(" https://world.openfoodfacts.org/api/v0/product/")
         .addConverterFactory(MoshiConverterFactory.create())
         .build()
 
@@ -38,10 +39,10 @@ class ProduitsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_page_details)
 
-        val call = service. getProductByBarcode()
+        val call = service.getProductByBarcode()
         call.enqueue(object  : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
-                Log.i(TAG, "onResponse : ")
+                Log.i(TAG, "onResponse : ${response.body()}")
             }
 
             override fun onFailure(call: Call<String>, t: Throwable) {
