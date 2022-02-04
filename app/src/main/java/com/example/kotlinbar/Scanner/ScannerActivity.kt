@@ -52,19 +52,19 @@ class ScannerActivity : AppCompatActivity() {
                     val call = service.listRepos(result.contents)
 
                     if (call != null) {
-                        call.enqueue( object : Callback< ClassProduitsWrapperCode>  {
+                        call.enqueue( object : Callback<ClassProduits>  {
                             override fun onResponse(
-                                call: Call< ClassProduitsWrapperCode>,
-                                response: Response< ClassProduitsWrapperCode>
+                                call: Call<ClassProduits>,
+                                response: Response<ClassProduits>
+
                             ) {
                                 Log.i("TAG", "onResponse: ${response.body()}")
                             }
 
-                            override fun onFailure(call: Call< ClassProduitsWrapperCode>, t: Throwable) {
+
+                            override fun onFailure(call: Call<ClassProduits>, t: Throwable) {
                                 Log.e("TAG", "onFailure: ", t)
                             }
-
-
                         })
                     }
 

@@ -38,6 +38,7 @@ class ProduitsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_page_details)
+
         val call = service.getProductByBarcode()
         call.enqueue(object  : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {

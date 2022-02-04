@@ -7,6 +7,7 @@
     android:background="@drawable/Background"
     tools:context=".MainActivity">
 
+
     <Button
         android:id="@+id/Scannerbutton"
         android:layout_width="wrap_content"
